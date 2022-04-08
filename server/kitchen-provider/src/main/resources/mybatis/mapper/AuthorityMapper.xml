@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.AuthorityMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.Authority">
+    <!--@mbg.generated-->
+    <!--@Table authority-->
+    <id column="authority_id" jdbcType="INTEGER" property="authorityId" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+    <result column="authority_name" jdbcType="VARCHAR" property="authorityName" />
+    <result column="authority_code" jdbcType="VARCHAR" property="authorityCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    authority_id, user_type, authority_name, authority_code, create_time, modified_time, 
+    is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from authority
+    where authority_id = #{authorityId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserType" parameterType="java.lang.String" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select authority_name
+    from authority
+    where user_type = #{userType}
+    and is_deleted = false
+  </select>
+  <select id="selectAllInfo" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from authority
+    where is_deleted = false
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    update authority
+    set is_deleted = true
+    where authority_id = #{authorityId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="authority_id" keyProperty="authorityId" parameterType="cn.guet.kitchen.entity.Authority" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into authority (user_type, authority_name, authority_code, 
+      create_time, modified_time, is_deleted
+      )
+    values (#{userType,jdbcType=VARCHAR}, #{authorityName,jdbcType=VARCHAR}, #{authorityCode,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BOOLEAN}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="authority_id" keyProperty="authorityId" parameterType="cn.guet.kitchen.entity.Authority" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into authority
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="authorityName != null">
+        authority_name,
+      </if>
+      <if test="authorityCode != null">
+        authority_code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifiedTime != null">
+        modified_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityName != null">
+        #{authorityName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityCode != null">
+        #{authorityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null">
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.Authority">
+    <!--@mbg.generated-->
+    update authority
+    <set>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityName != null">
+        authority_name = #{authorityName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityCode != null">
+        authority_code = #{authorityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null">
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where authority_id = #{authorityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.Authority">
+    <!--@mbg.generated-->
+    update authority
+    set user_type = #{userType,jdbcType=VARCHAR},
+      authority_name = #{authorityName,jdbcType=VARCHAR},
+      authority_code = #{authorityCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=BOOLEAN}
+    where authority_id = #{authorityId,jdbcType=INTEGER}
+  </update>
+</mapper>

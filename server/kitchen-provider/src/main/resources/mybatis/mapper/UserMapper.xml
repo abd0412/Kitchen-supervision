@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.User">
+    <!--@mbg.generated-->
+    <!--@Table `user`-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account_number" jdbcType="INTEGER" property="accountNumber" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="head_logo" jdbcType="VARCHAR" property="headLogo" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="is_login" jdbcType="BOOLEAN" property="isLogin" />
+    <result column="admin_code" jdbcType="VARCHAR" property="adminCode" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="card_num" jdbcType="VARCHAR" property="cardNum" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, account_number, company_id, sex, phone, head_logo, create_time, modified_time, 
+    is_deleted, user_name, `password`, is_login, admin_code, age, card_num, openid, money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `user`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from `user`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user` (account_number, company_id, sex, 
+      phone, head_logo, create_time, 
+      modified_time, is_deleted, user_name, 
+      `password`, is_login, admin_code, 
+      age, card_num, openid, 
+      money)
+    values (#{accountNumber,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{headLogo,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifiedTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BOOLEAN}, #{userName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{isLogin,jdbcType=BOOLEAN}, #{adminCode,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{cardNum,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
+      #{money,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountNumber != null">
+        account_number,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="headLogo != null">
+        head_logo,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifiedTime != null">
+        modified_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="isLogin != null">
+        is_login,
+      </if>
+      <if test="adminCode != null">
+        admin_code,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="cardNum != null">
+        card_num,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountNumber != null">
+        #{accountNumber,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="headLogo != null">
+        #{headLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null">
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="isLogin != null">
+        #{isLogin,jdbcType=BOOLEAN},
+      </if>
+      <if test="adminCode != null">
+        #{adminCode,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="cardNum != null">
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.User">
+    <!--@mbg.generated-->
+    update `user`
+    <set>
+      <if test="accountNumber != null">
+        account_number = #{accountNumber,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="headLogo != null">
+        head_logo = #{headLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null">
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="isLogin != null">
+        is_login = #{isLogin,jdbcType=BOOLEAN},
+      </if>
+      <if test="adminCode != null">
+        admin_code = #{adminCode,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="cardNum != null">
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.User">
+    <!--@mbg.generated-->
+    update `user`
+    set account_number = #{accountNumber,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      head_logo = #{headLogo,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      user_name = #{userName,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      is_login = #{isLogin,jdbcType=BOOLEAN},
+      admin_code = #{adminCode,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      card_num = #{cardNum,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectCompanyIdAccountNumber" parameterType="cn.guet.kitchen.entity.User" resultType="java.lang.Integer">
+    <!--@mbg.generated-->
+    select
+    id
+    from `user`
+    where user_name = #{userName,jdbcType=VARCHAR}
+    and company_id = #{companyId,jdbcType=INTEGER}
+    and is_deleted = 0
+  </select>
+  <select id="selectOpenidMoney" parameterType="java.lang.String" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select
+    openid, money, id
+    from `user`
+    where openid = #{openid,jdbcType=VARCHAR}
+  </select>
+  <update id="updateByOpenid" parameterType="cn.guet.kitchen.entity.User">
+    <!--@mbg.generated-->
+    update `user`
+    <set>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL}
+      </if>
+    </set>
+    where openid = #{openid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectCompanyIdMember" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    company_id, member, money
+    from `user`
+  </select>
+  <update id="updateMoneyMemberByCompanyId" parameterType="cn.guet.kitchen.entity.User">
+    <!--@mbg.generated-->
+    update `user`
+    set member = #{member,jdbcType=INTEGER},
+    money = #{money,jdbcType=DECIMAL}
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </update>
+  <select id="selectUserByLessMoney" resultType="com.alibaba.fastjson.JSONObject">
+    select
+    openid, company_id
+    from `user`
+    where money &lt; 10;
+  </select>
+  <select id="selectOpenIdByCompanyIdAndType" resultType="string">
+    <!--@mbg.generated-->
+    select
+    openid
+    from `user`
+    where company_id = #{companyId,jdbcType=INTEGER}
+    and user_type = #{userType,jdbcType=VARCHAR}
+  </select>
+</mapper>

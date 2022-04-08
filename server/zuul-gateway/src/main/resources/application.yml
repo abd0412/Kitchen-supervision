@@ -1,0 +1,51 @@
+server:
+  port: 6001
+  #port: 8443
+#  ssl:
+#    key-store: classpath:server.p12
+#    key-store-password: gcly2020
+#    key-store-type: PKCS12
+
+#服务的名称
+spring:
+  application:
+    name: zuul-gateway
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
+      max-request-size: -1
+
+#自定义路由映射
+zuul:
+  host:
+    connect-timeout-millis: 55000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+  routes:
+    SECURITY-UAA: /security-uaa/**
+    SYSTEM-PROVIDER: /system/** #系统管理
+    PUBLI-PROVIDER: /public/** #基础数据管理
+
+
+
+
+  #统一入口为上面的配置，其他入口忽略
+  ignored-patterns: /*-service/**
+  #忽略整个服务，对外提供接口
+  ignored-services: order-service                         #访问路径可以显示IP地址
+
+ribbon:
+  ReadTimeout: 50000
+  ConnectTimeout: 50000
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types[0]: text/xml
+      mime-types[1]: application/xml
+      mime-types[2]: application/json
+      min-request-size: 2048
+    response.enabled: true

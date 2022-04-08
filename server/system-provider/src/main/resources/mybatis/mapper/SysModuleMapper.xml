@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxhunter.tourism.system.mapper.SysModuleMapper">
+  <resultMap id="BaseResultMap" type="cn.gxhunter.tourism.common.entity.SysModule">
+    <!--@mbg.generated-->
+    <!--@Table sys_module-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent" jdbcType="VARCHAR" property="parent" />
+    <result column="parent_name" jdbcType="VARCHAR" property="parentName" />
+    <result column="function" jdbcType="VARCHAR" property="function" />
+    <result column="editer" jdbcType="VARCHAR" property="editer" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="editer_id" jdbcType="INTEGER" property="editerId" />
+    <result column="creater_id" jdbcType="INTEGER" property="createrId" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, code, `name`, parent, parent_name, `function`, editer, creater, create_time, 
+    editer_id, creater_id, edit_time, url, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_module
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sys_module
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.gxhunter.tourism.common.entity.SysModule" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_module (code, `name`, parent, 
+      parent_name, `function`, editer, 
+      creater, create_time, editer_id, 
+      creater_id, edit_time, url, 
+      is_deleted)
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{parent,jdbcType=VARCHAR}, 
+      #{parentName,jdbcType=VARCHAR}, #{function,jdbcType=VARCHAR}, #{editer,jdbcType=VARCHAR}, 
+      #{creater,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{editerId,jdbcType=INTEGER}, 
+      #{createrId,jdbcType=INTEGER}, #{editTime,jdbcType=TIMESTAMP}, #{url,jdbcType=VARCHAR}, 
+      #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.gxhunter.tourism.common.entity.SysModule" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_module
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+      <if test="parentName != null">
+        parent_name,
+      </if>
+      <if test="function != null">
+        `function`,
+      </if>
+      <if test="editer != null">
+        editer,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="editerId != null">
+        editer_id,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentName != null">
+        #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="function != null">
+        #{function,jdbcType=VARCHAR},
+      </if>
+      <if test="editer != null">
+        #{editer,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editerId != null">
+        #{editerId,jdbcType=INTEGER},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gxhunter.tourism.common.entity.SysModule">
+    <!--@mbg.generated-->
+    update sys_module
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentName != null">
+        parent_name = #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="function != null">
+        `function` = #{function,jdbcType=VARCHAR},
+      </if>
+      <if test="editer != null">
+        editer = #{editer,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editerId != null">
+        editer_id = #{editerId,jdbcType=INTEGER},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gxhunter.tourism.common.entity.SysModule">
+    <!--@mbg.generated-->
+    update sys_module
+    set code = #{code,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      parent = #{parent,jdbcType=VARCHAR},
+      parent_name = #{parentName,jdbcType=VARCHAR},
+      `function` = #{function,jdbcType=VARCHAR},
+      editer = #{editer,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      editer_id = #{editerId,jdbcType=INTEGER},
+      creater_id = #{createrId,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      url = #{url,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sys_module
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.code,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="parent = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.parent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="parent_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.parentName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`function` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.function,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="editer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editer,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="creater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.creater,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="editer_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editerId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="creater_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createrId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="edit_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="url = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.url,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sys_module
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.code != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.code,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="parent = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.parent != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.parent,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="parent_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.parentName != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.parentName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`function` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.function != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.function,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="editer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editer != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editer,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.creater != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.creater,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="editer_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editerId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editerId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creater_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createrId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.createrId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="edit_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editTime != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="url = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.url != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.url,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isDeleted != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_module
+    (code, `name`, parent, parent_name, `function`, editer, creater, create_time, editer_id, 
+      creater_id, edit_time, url, is_deleted)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.code,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.parent,jdbcType=VARCHAR}, 
+        #{item.parentName,jdbcType=VARCHAR}, #{item.function,jdbcType=VARCHAR}, #{item.editer,jdbcType=VARCHAR}, 
+        #{item.creater,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.editerId,jdbcType=INTEGER}, 
+        #{item.createrId,jdbcType=INTEGER}, #{item.editTime,jdbcType=TIMESTAMP}, #{item.url,jdbcType=VARCHAR}, 
+        #{item.isDeleted,jdbcType=TINYINT})
+    </foreach>
+  </insert>
+</mapper>

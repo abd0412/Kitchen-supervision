@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.NetworkGateMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.NetworkGate">
+    <!--@mbg.generated-->
+    <!--@Table network_gate-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="device_code" jdbcType="VARCHAR" property="deviceCode" />
+    <result column="channel_num" jdbcType="INTEGER" property="channelNum" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="ip_address" jdbcType="VARCHAR" property="ipAddress" />
+    <result column="mac" jdbcType="VARCHAR" property="mac" />
+    <result column="used_channel_num" jdbcType="INTEGER" property="usedChannelNum" />
+    <result column="free_channel_num" jdbcType="INTEGER" property="freeChannelNum" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="warn_id" jdbcType="INTEGER" property="warnId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, device_code, channel_num, company_id, ip_address, mac, used_channel_num, free_channel_num, 
+    is_deleted, insert_time, update_time, `status`, warn_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from network_gate
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectBySomeKey" parameterType="cn.guet.kitchen.entity.NetworkGate" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from network_gate
+    where
+    <if test="id != null">
+      id = #{id,jdbcType=INTEGER} and
+    </if>
+    <if test="deviceCode != null">
+      device_code = #{deviceCode,jdbcType=VARCHAR} and
+    </if>
+    <if test="channelNum != null">
+      channel_num = #{channelNum,jdbcType=INTEGER} and
+    </if>
+    <if test="companyId != null">
+      company_id = #{companyId,jdbcType=INTEGER} and
+    </if>
+    <if test="ipAddress != null">
+      ip_address = #{ipAddress,jdbcType=VARCHAR} and
+    </if>
+    <if test="mac != null">
+      mac = #{mac,jdbcType=VARCHAR} and
+    </if>
+    <if test="usedChannelNum != null">
+      used_channel_num = #{usedChannelNum,jdbcType=INTEGER} and
+    </if>
+    <if test="freeChannelNum != null">
+      free_channel_num = #{freeChannelNum,jdbcType=INTEGER} and
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=INTEGER} and
+    </if>
+    <if test="warnId != null">
+      warn_id = #{warnId,jdbcType=INTEGER} and
+    </if>
+    is_deleted = false
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from network_gate
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.NetworkGate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into network_gate (device_code, channel_num, company_id, 
+      ip_address, mac, used_channel_num, 
+      free_channel_num, is_deleted, insert_time, 
+      update_time, `status`, warn_id
+      )
+    values (#{deviceCode,jdbcType=VARCHAR}, #{channelNum,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, 
+      #{ipAddress,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, #{usedChannelNum,jdbcType=INTEGER}, 
+      #{freeChannelNum,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, #{insertTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{warnId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.NetworkGate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into network_gate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceCode != null">
+        device_code,
+      </if>
+      <if test="channelNum != null">
+        channel_num,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="ipAddress != null">
+        ip_address,
+      </if>
+      <if test="mac != null">
+        mac,
+      </if>
+      <if test="usedChannelNum != null">
+        used_channel_num,
+      </if>
+      <if test="freeChannelNum != null">
+        free_channel_num,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="warnId != null">
+        warn_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceCode != null">
+        #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNum != null">
+        #{channelNum,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="ipAddress != null">
+        #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null">
+        #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="usedChannelNum != null">
+        #{usedChannelNum,jdbcType=INTEGER},
+      </if>
+      <if test="freeChannelNum != null">
+        #{freeChannelNum,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="warnId != null">
+        #{warnId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.NetworkGate">
+    <!--@mbg.generated-->
+    update network_gate
+    <set>
+      <if test="channelNum != null">
+        channel_num = #{channelNum,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="ipAddress != null">
+        ip_address = #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null">
+        mac = #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="usedChannelNum != null">
+        used_channel_num = #{usedChannelNum,jdbcType=INTEGER},
+      </if>
+      <if test="freeChannelNum != null">
+        free_channel_num = #{freeChannelNum,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="warnId != null">
+        warn_id = #{warnId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.NetworkGate">
+    <!--@mbg.generated-->
+    update network_gate
+    set device_code = #{deviceCode,jdbcType=VARCHAR},
+      channel_num = #{channelNum,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      ip_address = #{ipAddress,jdbcType=VARCHAR},
+      mac = #{mac,jdbcType=VARCHAR},
+      used_channel_num = #{usedChannelNum,jdbcType=INTEGER},
+      free_channel_num = #{freeChannelNum,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=INTEGER},
+      warn_id = #{warnId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

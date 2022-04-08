@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxhunter.tourism.system.mapper.SysRoleModuleAuthorityMapper">
+  <resultMap id="BaseResultMap" type="cn.gxhunter.tourism.common.entity.SysRoleModuleAuthority">
+    <!--@mbg.generated-->
+    <!--@Table sys_role_module_authority-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sys_role_id" jdbcType="INTEGER" property="sysRoleId" />
+    <result column="sys_module_id" jdbcType="INTEGER" property="sysModuleId" />
+    <result column="function" jdbcType="VARCHAR" property="function" />
+    <result column="creater_id" jdbcType="INTEGER" property="createrId" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="editer_id" jdbcType="INTEGER" property="editerId" />
+    <result column="editer" jdbcType="VARCHAR" property="editer" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, sys_role_id, sys_module_id, `function`, creater_id, creater, create_time, editer_id, 
+    editer, edit_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_module_authority
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sys_role_module_authority
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.gxhunter.tourism.common.entity.SysRoleModuleAuthority" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role_module_authority (sys_role_id, sys_module_id, `function`, 
+      creater_id, creater, create_time, 
+      editer_id, editer, edit_time, 
+      is_deleted)
+    values (#{sysRoleId,jdbcType=INTEGER}, #{sysModuleId,jdbcType=INTEGER}, #{function,jdbcType=VARCHAR}, 
+      #{createrId,jdbcType=INTEGER}, #{creater,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{editerId,jdbcType=INTEGER}, #{editer,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.gxhunter.tourism.common.entity.SysRoleModuleAuthority" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role_module_authority
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sysRoleId != null">
+        sys_role_id,
+      </if>
+      <if test="sysModuleId != null">
+        sys_module_id,
+      </if>
+      <if test="function != null">
+        `function`,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="editerId != null">
+        editer_id,
+      </if>
+      <if test="editer != null">
+        editer,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sysRoleId != null">
+        #{sysRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="sysModuleId != null">
+        #{sysModuleId,jdbcType=INTEGER},
+      </if>
+      <if test="function != null">
+        #{function,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editerId != null">
+        #{editerId,jdbcType=INTEGER},
+      </if>
+      <if test="editer != null">
+        #{editer,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gxhunter.tourism.common.entity.SysRoleModuleAuthority">
+    <!--@mbg.generated-->
+    update sys_role_module_authority
+    <set>
+      <if test="sysRoleId != null">
+        sys_role_id = #{sysRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="sysModuleId != null">
+        sys_module_id = #{sysModuleId,jdbcType=INTEGER},
+      </if>
+      <if test="function != null">
+        `function` = #{function,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editerId != null">
+        editer_id = #{editerId,jdbcType=INTEGER},
+      </if>
+      <if test="editer != null">
+        editer = #{editer,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gxhunter.tourism.common.entity.SysRoleModuleAuthority">
+    <!--@mbg.generated-->
+    update sys_role_module_authority
+    set sys_role_id = #{sysRoleId,jdbcType=INTEGER},
+      sys_module_id = #{sysModuleId,jdbcType=INTEGER},
+      `function` = #{function,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=INTEGER},
+      creater = #{creater,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      editer_id = #{editerId,jdbcType=INTEGER},
+      editer = #{editer,jdbcType=VARCHAR},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sys_role_module_authority
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="sys_role_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.sysRoleId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="sys_module_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.sysModuleId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`function` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.function,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="creater_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createrId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="creater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.creater,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="editer_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editerId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="editer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editer,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="edit_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sys_role_module_authority
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="sys_role_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sysRoleId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.sysRoleId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sys_module_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sysModuleId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.sysModuleId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`function` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.function != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.function,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creater_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createrId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.createrId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.creater != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.creater,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="editer_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editerId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editerId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="editer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editer != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editer,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="edit_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editTime != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isDeleted != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role_module_authority
+    (sys_role_id, sys_module_id, `function`, creater_id, creater, create_time, editer_id, 
+      editer, edit_time, is_deleted)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.sysRoleId,jdbcType=INTEGER}, #{item.sysModuleId,jdbcType=INTEGER}, #{item.function,jdbcType=VARCHAR}, 
+        #{item.createrId,jdbcType=INTEGER}, #{item.creater,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.editerId,jdbcType=INTEGER}, #{item.editer,jdbcType=VARCHAR}, #{item.editTime,jdbcType=TIMESTAMP}, 
+        #{item.isDeleted,jdbcType=TINYINT})
+    </foreach>
+  </insert>
+
+  <!--  根据角色id查找-->
+  <select id="selectSysRoleModuleByRoleId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select authority.*,module.name as sysModuleName, module.code as sysModuleCode
+    from sys_role_module_authority  authority
+    left join sys_module module on authority.sys_module_id = module.id and module.is_deleted = 0
+    where authority.sys_role_id = #{id,jdbcType=INTEGER} and authority.is_deleted = 0
+  </select>
+
+  <!-- 根据角色id,逻辑删除 -->
+  <update id="updateStatusBySysRoleId">
+    update sys_role_module_authority
+    set is_deleted = 1, editer_id = #{editerId}
+    where sys_role_id = #{sysRoleId}
+  </update>
+</mapper>

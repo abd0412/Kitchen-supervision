@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.MaintenanceCompanyMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.MaintenanceCompany">
+    <!--@mbg.generated-->
+    <!--@Table maintenance_company-->
+    <id column="maintenance_company_id" jdbcType="INTEGER" property="maintenanceCompanyId" />
+    <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="business_license" jdbcType="VARCHAR" property="businessLicense" />
+    <result column="legal_representative" jdbcType="VARCHAR" property="legalRepresentative" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="lngAndLat" jdbcType="VARCHAR" property="lngandlat" />
+    <result column="level" jdbcType="VARCHAR" property="level" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="id_deleted" jdbcType="BOOLEAN" property="idDeleted" />
+    <result column="is_recommend" jdbcType="BOOLEAN" property="isRecommend" />
+    <result column="member_ID" jdbcType="VARCHAR" property="memberId" />
+    <result column="admin_code" jdbcType="VARCHAR" property="adminCode" />
+    <result column="dispatch_num" jdbcType="INTEGER" property="dispatchNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    maintenance_company_id, company_code, company_name, business_license, legal_representative, 
+    phone, address, lngAndLat, `level`, insert_time, update_time, id_deleted, is_recommend, 
+    member_ID, admin_code, dispatch_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from maintenance_company
+    where maintenance_company_id = #{maintenanceCompanyId,jdbcType=INTEGER}
+    and id_deleted = false
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.guet.kitchen.entity.MaintenanceCompany">
+    <!--@mbg.generated-->
+    update maintenance_company
+    set id_deleted = #{idDeleted,jdbcType=BOOLEAN}
+    where maintenance_company_id = #{maintenanceCompanyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="maintenance_company_id" keyProperty="maintenanceCompanyId" parameterType="cn.guet.kitchen.entity.MaintenanceCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into maintenance_company (company_code, company_name, business_license, 
+      legal_representative, phone, address, 
+      lngAndLat, `level`, insert_time, 
+      update_time, id_deleted, is_recommend, 
+      member_ID, admin_code, dispatch_num
+      )
+    values (#{companyCode,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{businessLicense,jdbcType=VARCHAR}, 
+      #{legalRepresentative,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{lngandlat,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, #{insertTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{idDeleted,jdbcType=BOOLEAN}, #{isRecommend,jdbcType=BOOLEAN}, 
+      #{memberId,jdbcType=VARCHAR}, #{adminCode,jdbcType=VARCHAR}, #{dispatchNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectMinDispatchNum" resultType="java.lang.Integer">
+    <!--@mbg.generated-->
+    select
+    MIN(dispatch_num)
+    from maintenance_company
+    where id_deleted = false
+  </select>
+  <insert id="insertSelective" keyColumn="maintenance_company_id" keyProperty="maintenanceCompanyId" parameterType="cn.guet.kitchen.entity.MaintenanceCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into maintenance_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyCode != null">
+        company_code,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="businessLicense != null">
+        business_license,
+      </if>
+      <if test="legalRepresentative != null">
+        legal_representative,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="lngandlat != null">
+        lngAndLat,
+      </if>
+      <if test="level != null">
+        `level`,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="idDeleted != null">
+        id_deleted,
+      </if>
+      <if test="isRecommend != null">
+        is_recommend,
+      </if>
+      <if test="memberId != null">
+        member_ID,
+      </if>
+      <if test="adminCode != null">
+        admin_code,
+      </if>
+      <if test="dispatchNum != null">
+        dispatch_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyCode != null">
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null">
+        #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="lngandlat != null">
+        #{lngandlat,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idDeleted != null">
+        #{idDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="isRecommend != null">
+        #{isRecommend,jdbcType=BOOLEAN},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCode != null">
+        #{adminCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dispatchNum != null">
+        #{dispatchNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.MaintenanceCompany">
+    <!--@mbg.generated-->
+    update maintenance_company
+    <set>
+      <if test="companyCode != null">
+        company_code = #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null">
+        business_license = #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null">
+        legal_representative = #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="lngandlat != null">
+        lngAndLat = #{lngandlat,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        `level` = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idDeleted != null">
+        id_deleted = #{idDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="isRecommend != null">
+        is_recommend = #{isRecommend,jdbcType=BOOLEAN},
+      </if>
+      <if test="memberId != null">
+        member_ID = #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCode != null">
+        admin_code = #{adminCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dispatchNum != null">
+        dispatch_num = #{dispatchNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where maintenance_company_id = #{maintenanceCompanyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.MaintenanceCompany">
+    <!--@mbg.generated-->
+    update maintenance_company
+    set company_code = #{companyCode,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      business_license = #{businessLicense,jdbcType=VARCHAR},
+      legal_representative = #{legalRepresentative,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      lngAndLat = #{lngandlat,jdbcType=VARCHAR},
+      `level` = #{level,jdbcType=VARCHAR},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_recommend = #{isRecommend,jdbcType=BOOLEAN},
+      member_ID = #{memberId,jdbcType=VARCHAR},
+      admin_code = #{adminCode,jdbcType=VARCHAR}
+    where maintenance_company_id = #{maintenanceCompanyId,jdbcType=INTEGER}
+  </update>
+</mapper>

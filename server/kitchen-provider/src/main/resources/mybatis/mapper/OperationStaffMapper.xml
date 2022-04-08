@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.OperationStaffMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.OperationStaff">
+    <!--@mbg.generated-->
+    <!--@Table operation_staff-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="card_num" jdbcType="VARCHAR" property="cardNum" />
+    <result column="update" jdbcType="TIMESTAMP" property="update" />
+    <result column="if_leave" jdbcType="BOOLEAN" property="ifLeave" />
+    <result column="dispatch_num" jdbcType="INTEGER" property="dispatchNum" />
+    <result column="leave_start_time" jdbcType="DATE" property="leaveStartTime" />
+    <result column="leave_end_time" jdbcType="DATE" property="leaveEndTime" />
+    <result column="id_deleted" jdbcType="BOOLEAN" property="idDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, age, sex, phone, company_id, card_num, `update`, if_leave, dispatch_num, 
+    leave_start_time, leave_end_time, id_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.guet.kitchen.entity.OperationStaff" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from operation_staff
+    where
+    <if test="id != null">
+      id = #{id,jdbcType=INTEGER} and
+    </if>
+    id_deleted = #{idDeleted,jdbcType=BOOLEAN}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.guet.kitchen.entity.OperationStaff">
+    <!--@mbg.generated-->
+    update operation_staff
+    set id_deleted = #{idDeleted,jdbcType=BOOLEAN}
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.guet.kitchen.entity.OperationStaff">
+    <!--@mbg.generated-->
+    insert into operation_staff (id, `name`, age, 
+      sex, phone, company_id, 
+      card_num, `update`, if_leave, 
+      dispatch_num, leave_start_time, leave_end_time, 
+      id_deleted)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{sex,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, 
+      #{cardNum,jdbcType=VARCHAR}, #{update,jdbcType=TIMESTAMP}, #{ifLeave,jdbcType=BOOLEAN}, 
+      #{dispatchNum,jdbcType=INTEGER}, #{leaveStartTime,jdbcType=DATE}, #{leaveEndTime,jdbcType=DATE}, 
+      #{idDeleted,jdbcType=BOOLEAN})
+  </insert>
+  <select id="selectMinDispatchNum" resultType="java.lang.Integer">
+    <!--@mbg.generated-->
+    select
+    MIN(dispatch_num)
+    from operation_staff
+    where id_deleted = false
+  </select>
+  <insert id="insertSelective" parameterType="cn.guet.kitchen.entity.OperationStaff">
+    <!--@mbg.generated-->
+    insert into operation_staff
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="cardNum != null">
+        card_num,
+      </if>
+      <if test="update != null">
+        `update`,
+      </if>
+      <if test="ifLeave != null">
+        if_leave,
+      </if>
+      <if test="dispatchNum != null">
+        dispatch_num,
+      </if>
+      <if test="leaveStartTime != null">
+        leave_start_time,
+      </if>
+      <if test="leaveEndTime != null">
+        leave_end_time,
+      </if>
+      <if test="idDeleted != null">
+        id_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="cardNum != null">
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="update != null">
+        #{update,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifLeave != null">
+        #{ifLeave,jdbcType=BOOLEAN},
+      </if>
+      <if test="dispatchNum != null">
+        #{dispatchNum,jdbcType=INTEGER},
+      </if>
+      <if test="leaveStartTime != null">
+        #{leaveStartTime,jdbcType=DATE},
+      </if>
+      <if test="leaveEndTime != null">
+        #{leaveEndTime,jdbcType=DATE},
+      </if>
+      <if test="idDeleted != null">
+        #{idDeleted,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.OperationStaff">
+    <!--@mbg.generated-->
+    update operation_staff
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="cardNum != null">
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="update != null">
+        `update` = #{update,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifLeave != null">
+        if_leave = #{ifLeave,jdbcType=BOOLEAN},
+      </if>
+      <if test="dispatchNum != null">
+        dispatch_num = #{dispatchNum,jdbcType=INTEGER},
+      </if>
+      <if test="leaveStartTime != null">
+        leave_start_time = #{leaveStartTime,jdbcType=DATE},
+      </if>
+      <if test="leaveEndTime != null">
+        leave_end_time = #{leaveEndTime,jdbcType=DATE},
+      </if>
+      <if test="idDeleted != null">
+        id_deleted = #{idDeleted,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.OperationStaff">
+    <!--@mbg.generated-->
+    update operation_staff
+    set `name` = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=INTEGER},
+      card_num = #{cardNum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

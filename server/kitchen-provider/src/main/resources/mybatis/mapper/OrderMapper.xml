@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.DeviceMaintenanceOrder">
+    <!--@mbg.generated-->
+    <!--@Table device_maintenance-->
+    <result column="maintenance_id" jdbcType="INTEGER" property="maintenanceId" />
+    <result column="maintenance_company_id" jdbcType="INTEGER" property="maintenanceCompanyId" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+    <result column="insert_time" jdbcType="DATE" property="insertTime" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="order_type" jdbcType="VARCHAR" property="orderType" />
+    <result column="food_company_id" jdbcType="INTEGER" property="foodCompanyId" />
+    <result column="one_processor_id" jdbcType="INTEGER" property="oneProcessorId" />
+    <result column="money" jdbcType="DOUBLE" property="money" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="gen_type" jdbcType="VARCHAR" property="genType" />
+    <result column="batch" jdbcType="INTEGER" property="batch" />
+    <result column="time" jdbcType="DATE" property="time" />
+    <result column="maintenance_timeseg" jdbcType="VARCHAR" property="maintenanceTimeseg" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+    <result column="warn_id" jdbcType="INTEGER" property="warnId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="flow_num" jdbcType="VARCHAR" property="flowNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    maintenance_id, maintenance_company_id, is_deleted, insert_time, update_time, order_type,
+    food_company_id, one_processor_id, money, order_status, gen_type, batch, `time`, maintenance_timeseg,
+    remark, warn_id, order_number, flow_num
+  </sql>
+  <insert id="insert" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder">
+    <!--@mbg.generated-->
+    insert into device_maintenance (maintenance_id, maintenance_company_id,
+    is_deleted, insert_time, update_time,
+    order_type_code, food_company_id, one_processor_id,
+    money, order_status, gen_type,
+    batch, `time`, maintenance_period,
+    remark, warn_id, order_number,
+    flow_num)
+    values (#{maintenanceId,jdbcType=INTEGER}, #{maintenanceCompanyId,jdbcType=INTEGER},
+    #{isDeleted,jdbcType=BOOLEAN}, #{insertTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE},
+    #{orderTypeCode,jdbcType=INTEGER}, #{foodCompanyId,jdbcType=INTEGER}, #{oneProcessorId,jdbcType=INTEGER},
+    #{money,jdbcType=DOUBLE}, #{orderStatus,jdbcType=INTEGER}, #{genType,jdbcType=INTEGER},
+    #{batch,jdbcType=INTEGER}, #{time,jdbcType=DATE}, #{maintenancePeriod,jdbcType=INTEGER},
+    #{remark,jdbcType=LONGVARCHAR}, #{warnId,jdbcType=INTEGER}, #{orderNumber,jdbcType=VARCHAR},
+    #{flowNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder" useGeneratedKeys="true" keyProperty="maintenanceId">
+    <!--@mbg.generated-->
+    insert into device_maintenance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="maintenanceId != null">
+        maintenance_id,
+      </if>
+      <if test="maintenanceCompanyId != null">
+        maintenance_company_id,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="foodCompanyId != null">
+        food_company_id,
+      </if>
+      <if test="oneProcessorId != null">
+        one_processor_id,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="genType != null">
+        gen_type,
+      </if>
+      <if test="batch != null">
+        batch,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="maintenanceTimeseg != null">
+        maintenance_timeseg,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="warnId != null">
+        warn_id,
+      </if>
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="flowNum != null">
+        flow_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="maintenanceId != null">
+        #{maintenanceId,jdbcType=INTEGER},
+      </if>
+      <if test="maintenanceCompanyId != null">
+        #{maintenanceCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="foodCompanyId != null">
+        #{foodCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="oneProcessorId != null">
+        #{oneProcessorId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="genType != null">
+        #{genType,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=DATE},
+      </if>
+      <if test="maintenanceTimeseg != null">
+        #{maintenanceTimeseg,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="warnId != null">
+        #{warnId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="flowNum != null">
+        #{flowNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectAllMaintenanceCompanyId" resultType="String">
+    select json_object(
+    'maintenanceCompanyId', maintenance_company_id,
+    'dispatchNum', dispatch_num
+    )from maintenance_company m
+    where m.id_deleted = false
+  </select>
+  <select id="selectAllOperationCompanyId" resultType="String">
+    select json_object(
+    'operationCompanyId', operation_company_id,
+    'dispatchNum', dispatch_num
+    )from operation_company p
+    where p.is_deleted = false
+  </select>
+  <update id="updateCompanyNum">
+    update maintenance_company m set m.dispatch_num = #{dispatchNum, jdbcType=INTEGER} where m.maintenance_company_id = #{maintenanceCompanyId, jdbcType=INTEGER};
+  </update>
+  <update id="updateOperationNum">
+    update operation_company p set p.dispatch_num = #{dispatchNum, jdbcType=INTEGER} where p.operation_company_id = #{operationCompanyId, jdbcType=INTEGER};
+  </update>
+  <select id="selectAllMaintenanceStaffId" resultType="String">
+    select json_object(
+    'maintenanceStaffId', user_name,
+    'companyId', company_id,
+    'dispatchNum', dispatch_num,
+    'leave', if_leave,
+    'leaveStartTime', leave_start_time,
+    'leaveEndTime', leave_end_time
+    )from `user` u
+    where u.company_id = #{maintenanceCompanyId, jdbcType=INTEGER}
+    and u.user_type = 'maintenance'
+    and u.is_deleted = false
+  </select>
+  <select id="selectAllOperationStaffId" resultType="String">
+    select json_object(
+    'operationStaffId', user_name,
+    'companyId', company_id,
+    'dispatchNum', dispatch_num,
+    'leave', if_leave,
+    'leaveStartTime', leave_start_time,
+    'leaveEndTime', leave_end_time
+    )from `user` e
+    where e.company_id = #{operationCompanyId, jdbcType=INTEGER}
+    and e.user_type = 'operate'
+    and e.is_deleted = false
+  </select>
+  <update id="updateStaffNum">
+    update `user` m set m.dispatch_num = #{staffDispatchNum, jdbcType=INTEGER} where m.company_id = #{companyId, jdbcType=INTEGER} and m.user_name = #{maintenanceStaffId, jdbcType=VARCHAR};
+  </update>
+  <update id="updateOrderNumber" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder">
+    <!--@mbg.generated-->
+    update device_maintenance
+    set order_number = #{orderNumber,jdbcType=VARCHAR},
+    flow_num = #{flowNum,jdbcType=VARCHAR}
+    where maintenance_id = #{maintenanceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByOrderNumber" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder" useGeneratedKeys="true" keyProperty="maintenanceId">
+    <!--@mbg.generated-->
+    update device_maintenance
+    set maintenance_company_id = #{maintenanceCompanyId,jdbcType=INTEGER},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    order_type = #{orderType,jdbcType=VARCHAR},
+    food_company_id = #{foodCompanyId,jdbcType=INTEGER},
+    one_processor_id = #{oneProcessorId,jdbcType=INTEGER},
+    money = #{money,jdbcType=DOUBLE},
+    order_status = #{orderStatus,jdbcType=INTEGER},
+    gen_type = #{genType,jdbcType=VARCHAR},
+    batch = #{batch,jdbcType=INTEGER},
+    `time` = #{time,jdbcType=DATE},
+    maintenance_timeseg = #{maintenanceTimeseg,jdbcType=VARCHAR},
+    remark = #{remark,jdbcType=LONGVARCHAR}
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByMaintenanceId" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder">
+    <!--@mbg.generated-->
+    update device_maintenance
+    set is_deleted = #{isDeleted,jdbcType=BOOLEAN}
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </update>
+  <select id="selectUpdateOrder" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder" resultMap="BaseResultMap">
+  <!--@mbg.generated-->
+    select
+    d.maintenance_id, d.maintenance_company_id, d.is_deleted, d.insert_time, d.update_time, d.order_type,
+    d.food_company_id, d.one_processor_id, d.money, d.order_status, d.gen_type, d.batch, d.`time`, d.maintenance_timeseg,
+    d.remark, d.warn_id, d.order_number, d.flow_num, f.company_name, f.phone, f.address
+    from device_maintenance d left join food_company f on f.company_id = d.food_company_id
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </select>
+  <select id="selectMaintenanceIdByOrderNumber" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder" resultType="integer">
+    <!--@mbg.generated-->
+    select
+    d.maintenance_id
+    from device_maintenance d
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </select>
+  <select id="selectOrder" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    d.maintenance_id, d.maintenance_company_id, d.is_deleted, d.insert_time, d.update_time, d.order_type,
+    d.food_company_id, u.processor_id, d.money, d.order_status, d.gen_type, d.batch, d.`time`, d.maintenance_timeseg,
+    d.remark, d.warn_id, d.order_number, d.flow_num, d.client_estimate, d.sign_img, d.mission_img, d.dispatch_time, d.acceptance_time,
+    f.company_name, f.phone, f.address
+    from device_maintenance d left join food_company f on f.company_id = d.food_company_id
+    left join user_order_map u on d.order_number = u.order_number
+    where
+    <if test="foodCompanyId != null">
+      d.food_company_id = #{foodCompanyId,jdbcType=INTEGER} and
+    </if>
+    <if test="orderStatus != null">
+      d.order_status = #{orderStatus,jdbcType=INTEGER} and
+    </if>
+    <if test="genType != null">
+      d.gen_type = #{genType,jdbcType=VARCHAR} and
+    </if>
+    <if test="orderType != null">
+      d.order_type = #{orderType,jdbcType=VARCHAR} and
+    </if>
+    <if test="insertTimeStart != null">
+      unix_timestamp(d.insert_time) &gt;= unix_timestamp(#{insertTimeStart,jdbcType=TIMESTAMP}) and
+    </if>
+    <if test="insertTimeEnd != null">
+      unix_timestamp(d.insert_time) &lt;= unix_timestamp(#{insertTimeEnd,jdbcType=TIMESTAMP}) and
+    </if>
+    <if test="orderNumber != null">
+      d.order_number = #{orderNumber,jdbcType=VARCHAR} and
+    </if>
+    <if test="flowNum != null">
+      d.flow_num = #{flowNum,jdbcType=VARCHAR} and
+    </if>
+    <if test="maintenanceCompanyId != null">
+      d.maintenance_company_id = #{maintenanceCompanyId,jdbcType=INTEGER} and
+    </if>
+    <if test="processorId != null">
+      u.processor_id = #{processorId,jdbcType=INTEGER} and
+    </if>
+    d.is_deleted = #{isDeleted,jdbcType=BOOLEAN}
+  </select>
+  <select id="selectByCompanyId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    f.company_name, f.phone, f.address
+    from food_company f
+    where
+    f.company_id = #{companyId,jdbcType=INTEGER}
+  </select>
+  <update id="updateStatusByOrderNumber" parameterType="cn.guet.kitchen.entity.DeviceMaintenanceOrder" useGeneratedKeys="true" keyProperty="maintenanceId">
+    <!--@mbg.generated-->
+    update device_maintenance
+    <set>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="dispatchTime != null">
+        dispatch_time = #{dispatchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="clientEstimate != null">
+        client_estimate = #{clientEstimate,jdbcType=INTEGER},
+      </if>
+      <if test="signImg != null">
+        sign_img = #{signImg,jdbcType=VARCHAR},
+      </if>
+      <if test="missionImg != null">
+        mission_img = #{missionImg,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptanceTime != null">
+        acceptance_time = #{acceptanceTime,jdbcType=VARCHAR}
+      </if>
+      <if test="updateDispatchTime != null">
+        update_dispatch_time = #{updateDispatchTime,jdbcType=VARCHAR}
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateIfInCleanOrder">
+    <!--@mbg.generated-->
+    update device
+    set if_in_clean_order = #{ifInOrder,jdbcType=BOOLEAN}
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </update>
+  <delete id="deletePreDispatchInfoByOrderNumber" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from user_order_map
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertProcessorIdInfo">
+    <!--@mbg.generated-->
+    insert into user_order_map (order_number, processor_id)
+    values (#{orderNumber,jdbcType=VARCHAR}, #{processorId,jdbcType=INTEGER})
+  </insert>
+  <select id="selectDispatchOrderNumber" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select distinct
+    u.order_number
+    from user_order_map u left join device_maintenance d on u.order_number = d.order_number
+    where
+    <if test="orderStatus != 0">
+      d.order_status = #{orderStatus,jdbcType=INTEGER} and
+    </if>
+      u.processor_id = #{processorId,jdbcType=INTEGER}
+  </select>
+  <select id="selectDispatchProcessorId" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select
+    u.processor_id
+    from user_order_map u
+    where u.order_number = #{orderNumber,jdbcType=VARCHAR}
+  </select>
+  <select id="selectDispatchOrderInfo" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    d.money, d.order_status, d.`time`, d.maintenance_timeseg, d.remark, d.order_number, d.flow_num, d.dispatch_time, d.client_estimate, d.sign_img, d.mission_img, d.dispatch_time, d.acceptance_time, d.update_dispatch_time,
+    f.company_name, f.phone, f.address
+    from device_maintenance d left join food_company f on f.company_id = d.food_company_id
+    where
+    <if test="orderStatus != 0">
+      d.order_status = #{orderStatus,jdbcType=INTEGER} and
+    </if>
+    d.order_number = #{orderNumber,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAllFoodCompany" resultType="java.lang.Integer">
+    <!--@mbg.generated-->
+    select count(*)
+    from food_company
+    where is_deleted = false
+  </select>
+  <select id="selectDeviceIdByFoodId" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select
+    d.device_id
+    from device d left join device_runparam r on r.device_id = d.device_id
+    where d.company_id = #{companyId,jdbcType=INTEGER}
+    and r.status = #{status,jdbcType=VARCHAR}
+    and d.is_deleted = false
+    and d.if_in_clean_order = false
+  </select>
+  <select id="selectOrderNumberByStatus" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select
+    order_number, money
+    from device_maintenance
+    where food_company_id = #{foodCompanyId,jdbcType=INTEGER}
+    and order_status &lt; #{orderStatus,jdbcType=INTEGER}
+    and is_deleted = false
+  </select>
+</mapper>

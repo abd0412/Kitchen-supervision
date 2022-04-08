@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.OrderDeviceMap3Mapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.OrderDeviceMap3">
+    <!--@mbg.generated-->
+    <!--@Table order_device_map3-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="device_id" jdbcType="VARCHAR" property="deviceId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, device_id, order_number, create_time, modify_time, is_deleted, seq_num, gate_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from order_device_map3
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from order_device_map3
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.OrderDeviceMap3" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order_device_map3 (device_id, order_number, create_time,
+    modify_time, is_deleted)
+    values (#{deviceId,jdbcType=VARCHAR}, #{orderNumber,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.OrderDeviceMap3" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order_device_map3
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="seqNum != null">
+        seq_num,
+      </if>
+      <if test="gateId != null">
+        gate_id
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNum != null">
+        #{seqNum,jdbcType=INTEGER},
+      </if>
+      <if test="gateId != null">
+        #{gateId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.OrderDeviceMap3">
+    <!--@mbg.generated-->
+    update order_device_map3
+    <set>
+      <if test="deviceId != null">
+        device_id = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null">
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.OrderDeviceMap3">
+    <!--@mbg.generated-->
+    update order_device_map3
+    set device_id = #{deviceId,jdbcType=VARCHAR},
+      order_number = #{orderNumber,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByOrderNumber" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    update order_device_map3
+    set is_deleted = true
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+  </update>
+  <select id="selectDeviceIdByStatus" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select
+    device_id
+    from order_device_map3
+    where order_number = #{orderNumber,jdbcType=VARCHAR}
+    and status = #{status,jdbcType=VARCHAR}
+    and is_deleted = false
+  </select>
+</mapper>

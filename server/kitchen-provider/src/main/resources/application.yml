@@ -1,0 +1,67 @@
+# User Account and Authentication
+server:
+  port: 7149  #8149
+
+spring:
+   jackson: Serialization.FAIL_ON_EMPTY_BEANS=false
+   application:
+    name: kitchen-provider						          #微服务名，唯一标识一个服务
+   main:
+     allow-bean-definition-overriding: true
+   http:
+     encoding:
+       enabled: true
+       charset: utf-8
+       force: true
+   #datasource:
+     #type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+     #profile: dev
+     #driver-class-name: com.mysql.jdbc.Driver                # mysql驱动包
+     #url: jdbc:mysql://jiafei1.wicp.vip:56695/sensor_data?useUnicode=true&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+     #username: root
+     #password: 123456
+   datasource:
+     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+     profile: dev
+     driver-class-name: com.mysql.jdbc.Driver                # mysql驱动包
+     name: kitchen_management
+     url: jdbc:mysql://127.0.0.1:3306/kitchen_management1?useUnicode=true&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+     #url: jdbc:mysql://jiafei1.wicp.vip/kitchen_management?serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&useSSL=false
+     #jdbc:mysql://jiafei1.wicp.vip:56695/ 我的服务器上用
+     #jdbc:mysql://127.0.0.1:3306/  正式服务器上用
+     username: root
+     password: 123456
+     #106.15.73.226  localhost
+     dbcp2:
+       min-idle: 5                                           # 数据库连接池的最小维持连接数
+       initial-size: 5                                       # 初始化连接数
+       max-total: 5                                          # 最大连接数
+       max-wait-millis: 86400                                # 默认值200太小 等待连接获取的最大超时时间
+   servlet:
+     multipart:
+       maxFileSize: 20MB  #单个数据的大小
+       maxRequestSize: 20MB  #总数据的大小
+
+eureka:
+  instance:
+    instance-id: kitchen-8046			 		     	#服务实例id，在eureka服务列表中Status处显示。微服务负载均衡的多个实例以此区分
+    prefer-ip-address: true      							#访问路径可以显示IP地址
+  client:
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations: classpath*:mybatis/mapper/**.xml
+  type-aliases-package: cn.gxhunter.tourism.common.entity
+
+info: 
+  app.name: kitchen-provider
+  company.name: www.guet.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+file:
+  uploadFolder: /var/www/html/imagesUpload #F:/images #/var/www/html/acc-image
+
+

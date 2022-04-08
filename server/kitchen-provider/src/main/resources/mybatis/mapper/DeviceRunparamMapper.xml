@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.DeviceRunparamMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.DeviceRunparam">
+    <!--@mbg.generated-->
+    <!--@Table device_runparam-->
+    <id column="device_id" jdbcType="VARCHAR" property="deviceId" />
+    <result column="param_id" jdbcType="INTEGER" property="paramId" />
+    <result column="is_online" jdbcType="BOOLEAN" property="isOnline" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="next_time" jdbcType="TIMESTAMP" property="nextTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="maintenance_num" jdbcType="INTEGER" property="maintenanceNum" />
+    <result column="start_stop_num" jdbcType="INTEGER" property="startStopNum" />
+    <result column="near_online_time" jdbcType="TIMESTAMP" property="nearOnlineTime" />
+    <result column="near_offline_time" jdbcType="TIMESTAMP" property="nearOfflineTime" />
+    <result column="maintenance_round" jdbcType="INTEGER" property="maintenanceRound" />
+    <result column="total_used_time" jdbcType="VARCHAR" property="totalUsedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    device_id, param_id, is_online, is_deleted, insert_time, update_time, next_time, 
+    `status`, maintenance_num, start_stop_num, near_online_time, near_offline_time, maintenance_round, 
+    all_run_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from device_runparam
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from device_runparam
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.guet.kitchen.entity.DeviceRunparam">
+    <!--@mbg.generated-->
+    insert into device_runparam (device_id, param_id, is_online, 
+      is_deleted, insert_time, update_time, 
+      next_time, `status`, maintenance_num, 
+      start_stop_num, near_online_time, near_offline_time, 
+      maintenance_round, all_run_time)
+    values (#{deviceId,jdbcType=VARCHAR}, #{paramId,jdbcType=INTEGER}, #{isOnline,jdbcType=BOOLEAN}, 
+      #{isDeleted,jdbcType=BOOLEAN}, #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{nextTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{maintenanceNum,jdbcType=INTEGER}, 
+      #{startStopNum,jdbcType=INTEGER}, #{nearOnlineTime,jdbcType=TIMESTAMP}, #{nearOfflineTime,jdbcType=TIMESTAMP}, 
+      #{maintenanceRound,jdbcType=INTEGER}, #{allRunTime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.guet.kitchen.entity.DeviceRunparam">
+    <!--@mbg.generated-->
+    insert into device_runparam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="paramId != null">
+        param_id,
+      </if>
+      <if test="isOnline != null">
+        is_online,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="nextTime != null">
+        next_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="maintenanceNum != null">
+        maintenance_num,
+      </if>
+      <if test="startStopNum != null">
+        start_stop_num,
+      </if>
+      <if test="nearOnlineTime != null">
+        near_online_time,
+      </if>
+      <if test="nearOfflineTime != null">
+        near_offline_time,
+      </if>
+      <if test="maintenanceRound != null">
+        maintenance_round,
+      </if>
+      <if test="allRunTime != null">
+        all_run_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="paramId != null">
+        #{paramId,jdbcType=INTEGER},
+      </if>
+      <if test="isOnline != null">
+        #{isOnline,jdbcType=BOOLEAN},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextTime != null">
+        #{nextTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenanceNum != null">
+        #{maintenanceNum,jdbcType=INTEGER},
+      </if>
+      <if test="startStopNum != null">
+        #{startStopNum,jdbcType=INTEGER},
+      </if>
+      <if test="nearOnlineTime != null">
+        #{nearOnlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nearOfflineTime != null">
+        #{nearOfflineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maintenanceRound != null">
+        #{maintenanceRound,jdbcType=INTEGER},
+      </if>
+      <if test="allRunTime != null">
+        #{allRunTime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.DeviceRunparam">
+    <!--@mbg.generated-->
+    update device_runparam
+    <set>
+      <if test="paramId != null">
+        param_id = #{paramId,jdbcType=INTEGER},
+      </if>
+      <if test="isOnline != null">
+        is_online = #{isOnline,jdbcType=BOOLEAN},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextTime != null">
+        next_time = #{nextTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenanceNum != null">
+        maintenance_num = #{maintenanceNum,jdbcType=INTEGER},
+      </if>
+      <if test="startStopNum != null">
+        start_stop_num = #{startStopNum,jdbcType=INTEGER},
+      </if>
+      <if test="nearOnlineTime != null">
+        near_online_time = #{nearOnlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nearOfflineTime != null">
+        near_offline_time = #{nearOfflineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maintenanceRound != null">
+        maintenance_round = #{maintenanceRound,jdbcType=INTEGER},
+      </if>
+      <if test="allRunTime != null">
+        all_run_time = #{allRunTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.DeviceRunparam">
+    <!--@mbg.generated-->
+    update device_runparam
+    set param_id = #{paramId,jdbcType=INTEGER},
+      is_online = #{isOnline,jdbcType=BOOLEAN},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      next_time = #{nextTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=VARCHAR},
+      maintenance_num = #{maintenanceNum,jdbcType=INTEGER},
+      start_stop_num = #{startStopNum,jdbcType=INTEGER},
+      near_online_time = #{nearOnlineTime,jdbcType=TIMESTAMP},
+      near_offline_time = #{nearOfflineTime,jdbcType=TIMESTAMP},
+      maintenance_round = #{maintenanceRound,jdbcType=INTEGER},
+      all_run_time = #{allRunTime,jdbcType=INTEGER}
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectDeviceId" resultType="com.alibaba.fastjson.JSONObject">
+    <!--@mbg.generated-->
+    select
+    r.device_id
+    from device_runparam r left join device d on r.device_id = d.device_id
+    where d.company_id = #{companyId,jdbcType=INTEGER}
+    and r.status = #{status,jdbcType=VARCHAR}
+    and d.is_deleted = false
+  </select>
+  <select id="selectMonitorInfo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    r.maintenance_num, r.update_time, r.device_id, r.is_online, r.near_online_time, r.maintenance_num, r.total_used_time, r.near_maintance_time, r.last_time, r.near_maintance_time, r.next_time, r.status
+    from device_runparam r
+    where r.device_id = #{deviceId,jdbcType=VARCHAR}
+    and r.is_deleted = false
+  </select>
+  <insert id="insertRunparamByDeviceId" parameterType="cn.guet.kitchen.entity.DeviceRunparam" useGeneratedKeys="true" keyProperty="paramId">
+    <!--@mbg.generated-->
+    insert into device_runparam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="nearMaintanceTime != null">
+        near_maintance_time,
+      </if>
+      <if test="maintenanceRound != null">
+        maintenance_round
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="nearMaintanceTime != null">
+        #{nearMaintanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maintenanceRound != null">
+        #{maintenanceRound,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </insert>
+</mapper>

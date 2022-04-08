@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.ArticleMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.Article">
+    <!--@mbg.generated-->
+    <!--@Table article-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="article_type_code" jdbcType="VARCHAR" property="articleTypeCode" />
+    <result column="article_type_name" jdbcType="VARCHAR" property="articleTypeName" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="issuer" jdbcType="VARCHAR" property="issuer" />
+    <result column="play_count" jdbcType="INTEGER" property="playCount" />
+    <result column="is_recommend" jdbcType="BOOLEAN" property="isRecommend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+    <result column="is_enable" jdbcType="BOOLEAN" property="isEnable" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="admin_code" jdbcType="VARCHAR" property="adminCode" />
+    <result column="module_code" jdbcType="VARCHAR" property="moduleCode" />
+    <result column="module_id" jdbcType="INTEGER" property="moduleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, article_type_code, article_type_name, title, content, release_time, issuer, play_count, 
+    is_recommend, create_time, modified_time, is_deleted, is_enable, type_id, admin_code, 
+    module_code, module_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from article
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByCompanyIdAndType" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from article
+    where module_id = #{companyID,jdbcType=INTEGER}
+    and module_code = #{companyType,jdbcType=VARCHAR}
+    and article_type_code = 'message'
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from article
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.Article" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into article (article_type_code, article_type_name, 
+      title, content, release_time, 
+      issuer, play_count, is_recommend, 
+      create_time, modified_time, is_deleted, 
+      is_enable, type_id, admin_code, 
+      module_code, module_id)
+    values (#{articleTypeCode,jdbcType=VARCHAR}, #{articleTypeName,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, #{releaseTime,jdbcType=TIMESTAMP}, 
+      #{issuer,jdbcType=VARCHAR}, #{playCount,jdbcType=INTEGER}, #{isRecommend,jdbcType=BOOLEAN}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BOOLEAN}, 
+      #{isEnable,jdbcType=BOOLEAN}, #{typeId,jdbcType=BIGINT}, #{adminCode,jdbcType=VARCHAR}, 
+      #{moduleCode,jdbcType=VARCHAR}, #{moduleId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.Article" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleTypeCode != null">
+        article_type_code,
+      </if>
+      <if test="articleTypeName != null">
+        article_type_name,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="releaseTime != null">
+        release_time,
+      </if>
+      <if test="issuer != null">
+        issuer,
+      </if>
+      <if test="playCount != null">
+        play_count,
+      </if>
+      <if test="isRecommend != null">
+        is_recommend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifiedTime != null">
+        modified_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="isEnable != null">
+        is_enable,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="adminCode != null">
+        admin_code,
+      </if>
+      <if test="moduleCode != null">
+        module_code,
+      </if>
+      <if test="moduleId != null">
+        module_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleTypeCode != null">
+        #{articleTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTypeName != null">
+        #{articleTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="releaseTime != null">
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issuer != null">
+        #{issuer,jdbcType=VARCHAR},
+      </if>
+      <if test="playCount != null">
+        #{playCount,jdbcType=INTEGER},
+      </if>
+      <if test="isRecommend != null">
+        #{isRecommend,jdbcType=BOOLEAN},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null">
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=BOOLEAN},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="adminCode != null">
+        #{adminCode,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleCode != null">
+        #{moduleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.Article">
+    <!--@mbg.generated-->
+    update article
+    <set>
+      <if test="articleTypeCode != null">
+        article_type_code = #{articleTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTypeName != null">
+        article_type_name = #{articleTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="releaseTime != null">
+        release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issuer != null">
+        issuer = #{issuer,jdbcType=VARCHAR},
+      </if>
+      <if test="playCount != null">
+        play_count = #{playCount,jdbcType=INTEGER},
+      </if>
+      <if test="isRecommend != null">
+        is_recommend = #{isRecommend,jdbcType=BOOLEAN},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null">
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="isEnable != null">
+        is_enable = #{isEnable,jdbcType=BOOLEAN},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="adminCode != null">
+        admin_code = #{adminCode,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleCode != null">
+        module_code = #{moduleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleId != null">
+        module_id = #{moduleId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.Article">
+    <!--@mbg.generated-->
+    update article
+    set article_type_code = #{articleTypeCode,jdbcType=VARCHAR},
+      article_type_name = #{articleTypeName,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      issuer = #{issuer,jdbcType=VARCHAR},
+      play_count = #{playCount,jdbcType=INTEGER},
+      is_recommend = #{isRecommend,jdbcType=BOOLEAN},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      is_enable = #{isEnable,jdbcType=BOOLEAN},
+      type_id = #{typeId,jdbcType=BIGINT},
+      admin_code = #{adminCode,jdbcType=VARCHAR},
+      module_code = #{moduleCode,jdbcType=VARCHAR},
+      module_id = #{moduleId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

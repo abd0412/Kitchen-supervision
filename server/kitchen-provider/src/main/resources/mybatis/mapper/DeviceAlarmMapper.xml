@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.DeviceAlarmMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.DeviceAlarm">
+    <!--@mbg.generated-->
+    <!--@Table device_alarm-->
+    <id column="device_id" jdbcType="INTEGER" property="deviceId" />
+    <result column="warn_code" jdbcType="VARCHAR" property="warnCode" />
+    <result column="warn_message" jdbcType="VARCHAR" property="warnMessage" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="Is_dealed" jdbcType="BOOLEAN" property="isDealed" />
+    <result column="early_warning_num" jdbcType="INTEGER" property="earlyWarningNum" />
+    <result column="alarm_num" jdbcType="INTEGER" property="alarmNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    device_id, warn_code, warn_message, is_deleted, insert_time, update_time, Is_dealed, 
+    early_warning_num, alarm_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from device_alarm
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from device_alarm
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.guet.kitchen.entity.DeviceAlarm">
+    <!--@mbg.generated-->
+    insert into device_alarm (device_id, warn_code, warn_message, 
+      is_deleted, insert_time, update_time, 
+      Is_dealed, early_warning_num, alarm_num
+      )
+    values (#{deviceId,jdbcType=INTEGER}, #{warnCode,jdbcType=VARCHAR}, #{warnMessage,jdbcType=VARCHAR}, 
+      #{isDeleted,jdbcType=BOOLEAN}, #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDealed,jdbcType=BOOLEAN}, #{earlyWarningNum,jdbcType=INTEGER}, #{alarmNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.guet.kitchen.entity.DeviceAlarm">
+    <!--@mbg.generated-->
+    insert into device_alarm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="warnCode != null">
+        warn_code,
+      </if>
+      <if test="warnMessage != null">
+        warn_message,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDealed != null">
+        Is_dealed,
+      </if>
+      <if test="earlyWarningNum != null">
+        early_warning_num,
+      </if>
+      <if test="alarmNum != null">
+        alarm_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="warnCode != null">
+        #{warnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warnMessage != null">
+        #{warnMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDealed != null">
+        #{isDealed,jdbcType=BOOLEAN},
+      </if>
+      <if test="earlyWarningNum != null">
+        #{earlyWarningNum,jdbcType=INTEGER},
+      </if>
+      <if test="alarmNum != null">
+        #{alarmNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.DeviceAlarm">
+    <!--@mbg.generated-->
+    update device_alarm
+    <set>
+      <if test="warnCode != null">
+        warn_code = #{warnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warnMessage != null">
+        warn_message = #{warnMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDealed != null">
+        Is_dealed = #{isDealed,jdbcType=BOOLEAN},
+      </if>
+      <if test="earlyWarningNum != null">
+        early_warning_num = #{earlyWarningNum,jdbcType=INTEGER},
+      </if>
+      <if test="alarmNum != null">
+        alarm_num = #{alarmNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.DeviceAlarm">
+    <!--@mbg.generated-->
+    update device_alarm
+    set warn_code = #{warnCode,jdbcType=VARCHAR},
+      warn_message = #{warnMessage,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      Is_dealed = #{isDealed,jdbcType=BOOLEAN},
+      early_warning_num = #{earlyWarningNum,jdbcType=INTEGER},
+      alarm_num = #{alarmNum,jdbcType=INTEGER}
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAbnormalDeviceInfo" resultType="com.alibaba.fastjson.JSONObject">
+    select
+    a.id, a.warn_message, d.company_id, u.openid
+    from device_alarm a left join device d on d.device_id = a.id
+    left join `user` u on u.company_id = d.company_id
+    where a.warn_code != '01'
+  </select>
+</mapper>

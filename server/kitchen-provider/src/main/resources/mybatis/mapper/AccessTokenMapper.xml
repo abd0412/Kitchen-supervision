@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.AccessTokenMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.AccessToken">
+    <!--@mbg.generated-->
+    <!--@Table access_token-->
+    <id column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="grant_type" jdbcType="VARCHAR" property="grantType" />
+    <result column="secret" jdbcType="VARCHAR" property="secret" />
+    <result column="access_token" jdbcType="LONGVARCHAR" property="accessToken" />
+    <result column="expires_in" jdbcType="INTEGER" property="expiresIn" />
+    <result column="dead_line" jdbcType="VARCHAR" property="deadLine" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    appid, grant_type, secret, access_token, expires_in, dead_line
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from access_token
+    where appid = #{appid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from access_token
+    where appid = #{appid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.guet.kitchen.entity.AccessToken">
+    <!--@mbg.generated-->
+    insert into access_token (appid, grant_type, secret, 
+      access_token, expires_in, dead_line
+      )
+    values (#{appid,jdbcType=VARCHAR}, #{grantType,jdbcType=VARCHAR}, #{secret,jdbcType=VARCHAR}, 
+      #{accessToken,jdbcType=LONGVARCHAR}, #{expiresIn,jdbcType=INTEGER}, #{deadLine,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.guet.kitchen.entity.AccessToken">
+    <!--@mbg.generated-->
+    insert into access_token
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="grantType != null">
+        grant_type,
+      </if>
+      <if test="secret != null">
+        secret,
+      </if>
+      <if test="accessToken != null">
+        access_token,
+      </if>
+      <if test="expiresIn != null">
+        expires_in,
+      </if>
+      <if test="deadLine != null">
+        dead_line,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="grantType != null">
+        #{grantType,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null">
+        #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="accessToken != null">
+        #{accessToken,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="expiresIn != null">
+        #{expiresIn,jdbcType=INTEGER},
+      </if>
+      <if test="deadLine != null">
+        #{deadLine,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.AccessToken">
+    <!--@mbg.generated-->
+    update access_token
+    <set>
+      <if test="grantType != null">
+        grant_type = #{grantType,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null">
+        secret = #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="accessToken != null">
+        access_token = #{accessToken,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="expiresIn != null">
+        expires_in = #{expiresIn,jdbcType=INTEGER},
+      </if>
+      <if test="deadLine != null">
+        dead_line = #{deadLine,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where appid = #{appid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.AccessToken">
+    <!--@mbg.generated-->
+    update access_token
+    set grant_type = #{grantType,jdbcType=VARCHAR},
+      secret = #{secret,jdbcType=VARCHAR},
+      access_token = #{accessToken,jdbcType=LONGVARCHAR},
+      expires_in = #{expiresIn,jdbcType=INTEGER},
+      dead_line = #{deadLine,jdbcType=VARCHAR}
+    where appid = #{appid,jdbcType=VARCHAR}
+  </update>
+</mapper>

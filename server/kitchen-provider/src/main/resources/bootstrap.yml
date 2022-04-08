@@ -1,0 +1,10 @@
+#bootstrap.yml优先级高于application.yml,该文件中没有的配置，仍旧从application.yml读取
+spring:
+  cloud:
+    config:
+      name: base
+      profile: dev
+      uri: http://localhost:8888
+#      label: develop
+      #       uri: http://54.223.237.60:8888 # config-server的地址 调试时使用
+      # uri: http://localhost:8888 # config-server的地址 与config同服务器部署时使用

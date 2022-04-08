@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gxhunter.tourism.system.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="cn.gxhunter.tourism.common.entity.SysUser">
+    <!--@mbg.generated-->
+    <!--@Table sys_user-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="wx_open_id" jdbcType="VARCHAR" property="wxOpenId" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="creater_id" jdbcType="INTEGER" property="createrId" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="editer_id" jdbcType="INTEGER" property="editerId" />
+    <result column="editer" jdbcType="VARCHAR" property="editer" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_name, `password`, `name`, flag, remark, wx_open_id, is_deleted, creater_id, 
+    creater, create_time, editer_id, editer, edit_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sys_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.gxhunter.tourism.common.entity.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user (user_name, `password`, `name`, 
+      flag, remark, wx_open_id, 
+      is_deleted, creater_id, creater, 
+      create_time, editer_id, editer, 
+      edit_time)
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{wxOpenId,jdbcType=VARCHAR}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createrId,jdbcType=INTEGER}, #{creater,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{editerId,jdbcType=INTEGER}, #{editer,jdbcType=VARCHAR}, 
+      #{editTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.gxhunter.tourism.common.entity.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="wxOpenId != null">
+        wx_open_id,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="editerId != null">
+        editer_id,
+      </if>
+      <if test="editer != null">
+        editer,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenId != null">
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editerId != null">
+        #{editerId,jdbcType=INTEGER},
+      </if>
+      <if test="editer != null">
+        #{editer,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gxhunter.tourism.common.entity.SysUser">
+    <!--@mbg.generated-->
+    update sys_user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenId != null">
+        wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editerId != null">
+        editer_id = #{editerId,jdbcType=INTEGER},
+      </if>
+      <if test="editer != null">
+        editer = #{editer,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gxhunter.tourism.common.entity.SysUser">
+    <!--@mbg.generated-->
+    update sys_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      creater_id = #{createrId,jdbcType=INTEGER},
+      creater = #{creater,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      editer_id = #{editerId,jdbcType=INTEGER},
+      editer = #{editer,jdbcType=VARCHAR},
+      edit_time = #{editTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sys_user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="user_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.userName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="flag = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.flag,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.remark,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="wx_open_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.wxOpenId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="creater_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createrId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="creater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.creater,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="editer_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editerId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="editer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editer,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="edit_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.editTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sys_user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="user_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userName != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.userName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.password != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.password,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="flag = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flag != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.flag,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.remark,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wx_open_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wxOpenId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.wxOpenId,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isDeleted != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creater_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createrId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.createrId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="creater = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.creater != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.creater,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="editer_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editerId != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editerId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="editer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editer != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editer,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="edit_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.editTime != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.editTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user
+    (user_name, `password`, `name`, flag, remark, wx_open_id, is_deleted, creater_id, 
+      creater, create_time, editer_id, editer, edit_time)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.userName,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, 
+        #{item.flag,jdbcType=VARCHAR}, #{item.remark,jdbcType=VARCHAR}, #{item.wxOpenId,jdbcType=VARCHAR}, 
+        #{item.isDeleted,jdbcType=TINYINT}, #{item.createrId,jdbcType=INTEGER}, #{item.creater,jdbcType=VARCHAR}, 
+        #{item.createTime,jdbcType=TIMESTAMP}, #{item.editerId,jdbcType=INTEGER}, #{item.editer,jdbcType=VARCHAR}, 
+        #{item.editTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+
+  <!-- 条件分页查询 -->
+  <select id="selectByRange" resultMap="BaseResultMap">
+    select u.*, group_concat(concat(r.id,':',r.name)) as roleMessage
+    from sys_user u
+    left join sys_user_role s on s.sys_user_id = u.id and s.is_deleted = 0
+    left join sys_role r on r.id = s.sys_role_id and r.is_deleted = 0
+    <where>
+      and u.is_deleted = 0
+      <if test="userName != null and userName != ''">
+        and u.user_name like CONCAT('%',#{userName},'%')
+      </if>
+      <if test="name != null and name != ''">
+        and u.name like CONCAT('%',#{name},'%')
+      </if>
+    </where>
+    group by u.id
+    order by u.id
+    <if test="skip != null and size != null">
+      limit #{skip},#{size}
+    </if>
+  </select>
+
+  <!-- 分页查询对应记录总数 -->
+  <select id="count" resultType="java.lang.Integer">
+    select count(distinct u.id)
+    from sys_user u
+    left join sys_user_role s on s.sys_user_id = u.id and s.is_deleted = 0
+    left join sys_role r on r.id = s.sys_role_id and r.is_deleted = 0
+    <where>
+      and u.is_deleted = 0
+      <if test="userName != null and userName != ''">
+        and u.user_name like CONCAT('%',#{userName},'%')
+      </if>
+      <if test="name != null and name != ''">
+        and u.name like CONCAT('%',#{name},'%')
+      </if>
+    </where>
+  </select>
+
+  <!-- 根据用户名列表,获取用户列表 -->
+  <select id="selectByUserNames" resultMap="BaseResultMap">
+    select *
+    from sys_user
+    where is_deleted = 0 and user_name in
+    <foreach close=")" collection="userNames" item="name" open="(" separator=",">
+      #{name}
+    </foreach>
+  </select>
+
+  <!-- 根据用户名,获取用户信息 -->
+  <select id="selectByUserName" resultMap="BaseResultMap">
+    select u.*, group_concat(concat(r.id,':',r.name)) as roleMessage
+    from sys_user u
+    left join sys_user_role s on s.sys_user_id = u.id and s.is_deleted = 0
+    left join sys_role r on r.id = s.sys_role_id and r.is_deleted = 0
+    where u.is_deleted = 0 and u.user_name = #{username}
+  </select>
+</mapper>

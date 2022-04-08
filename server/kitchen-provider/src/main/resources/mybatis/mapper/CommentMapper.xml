@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.kitchen.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="cn.guet.kitchen.entity.Comment">
+    <!--@mbg.generated-->
+    <!--@Table `comment`-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="module_id" jdbcType="BIGINT" property="moduleId" />
+    <result column="module" jdbcType="VARCHAR" property="module" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+    <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted" />
+    <result column="client_estimate" jdbcType="DOUBLE" property="clientEstimate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, module_id, `module`, user_id, order_number, content, comment_time, is_deleted, 
+    client_estimate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `comment`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from `comment`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.Comment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `comment` (module_id, `module`, user_id, 
+      order_number, content, comment_time, 
+      is_deleted, client_estimate)
+    values (#{moduleId,jdbcType=BIGINT}, #{module,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{orderNumber,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{commentTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=BOOLEAN}, #{clientEstimate,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.guet.kitchen.entity.Comment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `comment`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        module_id,
+      </if>
+      <if test="module != null">
+        `module`,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="commentTime != null">
+        comment_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="clientEstimate != null">
+        client_estimate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=BIGINT},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="clientEstimate != null">
+        #{clientEstimate,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectInfoByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from `comment`
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.guet.kitchen.entity.Comment">
+    <!--@mbg.generated-->
+    update `comment`
+    <set>
+      <if test="moduleId != null">
+        module_id = #{moduleId,jdbcType=BIGINT},
+      </if>
+      <if test="module != null">
+        `module` = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null">
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null">
+        comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      </if>
+      <if test="clientEstimate != null">
+        client_estimate = #{clientEstimate,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.guet.kitchen.entity.Comment">
+    <!--@mbg.generated-->
+    update `comment`
+    set module_id = #{moduleId,jdbcType=BIGINT},
+      `module` = #{module,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      order_number = #{orderNumber,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+      client_estimate = #{clientEstimate,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
