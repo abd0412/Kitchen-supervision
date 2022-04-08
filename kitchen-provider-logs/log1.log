@@ -1,0 +1,171 @@
+2021-04-19 10:09:33.830  INFO 20856 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2021-04-19 10:09:36.171  INFO 20856 --- [main] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2021-04-19 10:09:36.172  WARN 20856 --- [main] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/base/dev": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2021-04-19 10:09:36.173  INFO 20856 --- [main] c.g.kitchen.KitchenProviderApplication   : No active profile set, falling back to default profiles: default
+2021-04-19 10:09:38.288  WARN 20856 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-04-19 10:09:38.600  INFO 20856 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=725f2a6f-7cc0-3f37-b04b-7455da2850fe
+2021-04-19 10:09:38.757  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$828b2261] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:38.804  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$1b38ea9b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:38.812  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:38.829  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4c3de38e' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:38.834  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$400d8d4d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:38.843  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:38.866  INFO 20856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$9ea5255e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:09:39.512  INFO 20856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-19 10:09:39.544  INFO 20856 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-19 10:09:39.544  INFO 20856 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2021-04-19 10:09:39.554  INFO 20856 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2021-04-19 10:09:39.554  INFO 20856 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-04-19 10:09:39.555  INFO 20856 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-04-19 10:09:39.623  INFO 20856 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-04-19 10:09:40.123  INFO 20856 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-19 10:09:40.124  INFO 20856 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3912 ms
+2021-04-19 10:09:40.352  WARN 20856 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-19 10:09:40.353  INFO 20856 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-19 10:09:40.384  INFO 20856 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@76cdafa3
+2021-04-19 10:09:43.123  INFO 20856 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-04-19 10:09:43.325  INFO 20856 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2021-04-19 10:09:43.381  WARN 20856 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-19 10:09:43.381  INFO 20856 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-19 10:09:43.579  INFO 20856 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-19 10:09:43.938  INFO 20856 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 56e034c9-6bbb-4e0c-857a-2b8d6eb9c1af
+
+2021-04-19 10:09:44.050  INFO 20856 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35becbd4, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a3b1f7e, org.springframework.security.web.header.HeaderWriterFilter@661db63e, org.springframework.security.web.authentication.logout.LogoutFilter@226e07e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40017e98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66a472b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bcc8f13, org.springframework.security.web.session.SessionManagementFilter@2558f65c, org.springframework.security.web.access.ExceptionTranslationFilter@7a3c99f1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2beee3e8]
+2021-04-19 10:09:44.164  INFO 20856 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-19 10:09:44.528  INFO 20856 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2021-04-19 10:09:44.584  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2021-04-19 10:09:44.867  INFO 20856 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2021-04-19 10:09:44.868  INFO 20856 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2021-04-19 10:09:45.347  INFO 20856 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2021-04-19 10:09:45.347  INFO 20856 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2021-04-19 10:09:45.549  INFO 20856 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-04-19 10:09:45.644  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2021-04-19 10:09:45.644  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2021-04-19 10:09:45.644  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2021-04-19 10:09:45.644  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2021-04-19 10:09:45.644  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2021-04-19 10:09:45.644  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2021-04-19 10:09:45.645  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2021-04-19 10:09:45.823  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2021-04-19 10:09:45.827  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2021-04-19 10:09:45.831  INFO 20856 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-04-19 10:09:45.835  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1618798185834 with initial instances count: 1
+2021-04-19 10:09:45.840  INFO 20856 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application KITCHEN-PROVIDER with eureka with status UP
+2021-04-19 10:09:45.840  INFO 20856 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1618798185840, current=UP, previous=STARTING]
+2021-04-19 10:09:45.844  INFO 20856 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-19 10:09:45.846  INFO 20856 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_KITCHEN-PROVIDER/kitchen-8046: registering service...
+2021-04-19 10:09:45.868  INFO 20856 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-19 10:09:45.925  INFO 20856 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-19 10:09:46.013  INFO 20856 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_KITCHEN-PROVIDER/kitchen-8046 - registration status: 204
+2021-04-19 10:09:46.147  INFO 20856 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2021-04-19 10:09:46.148  INFO 20856 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2021-04-19 10:09:46.149  INFO 20856 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_3
+2021-04-19 10:09:46.156  INFO 20856 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteOrderUsingGET_1
+2021-04-19 10:09:46.202  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:09:46.239  INFO 20856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-19 10:09:46.240  INFO 20856 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2021-04-19 10:09:46.241  INFO 20856 --- [main] c.g.kitchen.KitchenProviderApplication   : Started KitchenProviderApplication in 14.251 seconds (JVM running for 14.936)
+2021-04-19 10:09:51.203  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:09:56.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:01.203  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:06.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:11.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:16.203  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:21.203  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:26.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:31.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:36.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:41.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:46.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:51.204  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:10:56.203  INFO 20856 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:13.358  INFO 21328 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2021-04-19 10:13:15.483  INFO 21328 --- [main] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2021-04-19 10:13:15.483  WARN 21328 --- [main] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/base/dev": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2021-04-19 10:13:15.485  INFO 21328 --- [main] c.g.kitchen.KitchenProviderApplication   : No active profile set, falling back to default profiles: default
+2021-04-19 10:13:16.681  WARN 21328 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-04-19 10:13:16.990  INFO 21328 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=725f2a6f-7cc0-3f37-b04b-7455da2850fe
+2021-04-19 10:13:17.114  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9831554] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:17.150  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$a230dd8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:17.157  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:17.161  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1f9d4b0e' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:17.166  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$c7058040] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:17.173  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:17.187  INFO 21328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$259d1851] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-19 10:13:18.063  INFO 21328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-19 10:13:18.089  INFO 21328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-19 10:13:18.089  INFO 21328 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2021-04-19 10:13:18.099  INFO 21328 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2021-04-19 10:13:18.100  INFO 21328 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-04-19 10:13:18.100  INFO 21328 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-04-19 10:13:18.102  INFO 21328 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-04-19 10:13:18.240  INFO 21328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-19 10:13:18.240  INFO 21328 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2744 ms
+2021-04-19 10:13:18.383  WARN 21328 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-19 10:13:18.383  INFO 21328 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-19 10:13:18.397  INFO 21328 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@4fb64e14
+2021-04-19 10:13:19.951  INFO 21328 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-04-19 10:13:20.092  INFO 21328 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2021-04-19 10:13:20.147  WARN 21328 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-04-19 10:13:20.147  INFO 21328 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-04-19 10:13:20.318  INFO 21328 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-19 10:13:20.592  INFO 21328 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 33a67597-9796-4719-92df-d4aa83f0e4e8
+
+2021-04-19 10:13:20.702  INFO 21328 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f112f70, org.springframework.security.web.context.SecurityContextPersistenceFilter@636fccb0, org.springframework.security.web.header.HeaderWriterFilter@2bb3f39e, org.springframework.security.web.authentication.logout.LogoutFilter@4e8afdad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15914bb5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d065e1a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@342723a3, org.springframework.security.web.session.SessionManagementFilter@4fbe486c, org.springframework.security.web.access.ExceptionTranslationFilter@6b030101, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ba97962]
+2021-04-19 10:13:20.812  INFO 21328 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-04-19 10:13:21.098  INFO 21328 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2021-04-19 10:13:21.134  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2021-04-19 10:13:21.277  INFO 21328 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2021-04-19 10:13:21.277  INFO 21328 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2021-04-19 10:13:21.646  INFO 21328 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2021-04-19 10:13:21.646  INFO 21328 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2021-04-19 10:13:21.799  INFO 21328 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-04-19 10:13:21.859  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2021-04-19 10:13:21.859  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2021-04-19 10:13:21.859  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2021-04-19 10:13:21.859  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2021-04-19 10:13:21.859  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2021-04-19 10:13:21.859  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2021-04-19 10:13:21.860  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2021-04-19 10:13:22.252  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2021-04-19 10:13:22.254  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2021-04-19 10:13:22.257  INFO 21328 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-04-19 10:13:22.261  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1618798402260 with initial instances count: 0
+2021-04-19 10:13:22.266  INFO 21328 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application KITCHEN-PROVIDER with eureka with status UP
+2021-04-19 10:13:22.266  INFO 21328 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1618798402266, current=UP, previous=STARTING]
+2021-04-19 10:13:22.269  INFO 21328 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_KITCHEN-PROVIDER/kitchen-8046: registering service...
+2021-04-19 10:13:22.269  INFO 21328 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-19 10:13:22.288  INFO 21328 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-19 10:13:22.339  INFO 21328 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-19 10:13:22.420  INFO 21328 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_KITCHEN-PROVIDER/kitchen-8046 - registration status: 204
+2021-04-19 10:13:22.536  INFO 21328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2021-04-19 10:13:22.538  INFO 21328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2021-04-19 10:13:22.539  INFO 21328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_3
+2021-04-19 10:13:22.546  INFO 21328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteOrderUsingGET_1
+2021-04-19 10:13:22.604  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:22.631  INFO 21328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-19 10:13:22.632  INFO 21328 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2021-04-19 10:13:22.634  INFO 21328 --- [main] c.g.kitchen.KitchenProviderApplication   : Started KitchenProviderApplication in 10.745 seconds (JVM running for 11.235)
+2021-04-19 10:13:27.606  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:32.605  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:37.605  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:42.604  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:47.604  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:52.254  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2021-04-19 10:13:52.254  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2021-04-19 10:13:52.254  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2021-04-19 10:13:52.254  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2021-04-19 10:13:52.255  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2021-04-19 10:13:52.255  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2021-04-19 10:13:52.255  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2021-04-19 10:13:52.287  INFO 21328 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2021-04-19 10:13:52.604  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:13:57.605  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:14:02.604  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:14:07.605  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:14:12.605  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
+2021-04-19 10:14:17.604  INFO 21328 --- [scheduling-1] c.g.kitchen.controller.OrderController   : 我每隔5秒冒泡一次：
